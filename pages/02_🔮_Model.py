@@ -288,7 +288,7 @@ else:
         # Predict
         st.dataframe(df_result)
         st.dataframe(df_result.dtypes)
-        # result = predict_production(df_result.values)
+        result = predict_production(df_result)
 
         # Show it
         st.success(result)
