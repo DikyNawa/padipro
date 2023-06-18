@@ -142,7 +142,8 @@ EXPECTED_COLUMNS = [
     ('Irigasi', float),
     ('Temperature', float),
     ('Luas_Panen', float),
-    ('Produktivitas', float)
+    ('Produktivitas', float),
+    ('Produksi', float)
 ]
 
 # KALAU USER PILIH UPLOAD FILE
