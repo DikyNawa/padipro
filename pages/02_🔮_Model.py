@@ -142,8 +142,7 @@ EXPECTED_COLUMNS = [
     ('Irigasi', float),
     ('Temperature', float),
     ('Luas_Panen', float),
-    ('Produktivitas', float),
-    ('Produksi', float)
+    ('Produktivitas', float)
 ]
 
 # KALAU USER PILIH UPLOAD FILE
@@ -176,8 +175,7 @@ if option == 'Upload a File':
             # if everything is OK, then predict it
             df_model = df.copy()
             df_model['Provinsi'] = df_model['Provinsi'].map(provinsi_dict)
-            X = df_model.drop(columns = ['Produksi'])
-            df['Hasil_Prediksi'] = predict_production(X)
+            df['Hasil_Prediksi'] = predict_production(df_model)
 
             # if everything is OK, display the dataframe
             st.write(df)
