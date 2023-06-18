@@ -75,7 +75,7 @@ def predict_production(data):
 @st.cache_resource
 def load_data():
     data_dummy = pd.read_excel('Data_Contoh.xlsx')
-    return model, data_dummy
+    return data_dummy
 
 data_dummy = load_data()
 
