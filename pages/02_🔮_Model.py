@@ -175,7 +175,8 @@ if option == 'Upload a File':
             # if everything is OK, then predict it
             df_model = df.copy()
             df_model['Provinsi'] = df_model['Provinsi'].map(provinsi_dict)
-            df['Hasil_Prediksi'] = predict_production(df_model)
+            X = df_model.drop(columns = ['Produksi'])
+            df['Hasil_Prediksi'] = predict_production(X)
 
             # if everything is OK, display the dataframe
             st.write(df)
