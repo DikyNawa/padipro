@@ -176,6 +176,7 @@ if option == 'Upload a File':
             df_model = df.copy()
             df_model['Provinsi'] = df_model['Provinsi'].map(provinsi_dict)
             df['Hasil_Prediksi'] = predict_production(df_model)
+            df['Hasil_Prediksi'] = df['Hasil_Prediksi'].apply(lambda x: max(0, x))
 
             # if everything is OK, display the dataframe
             st.write(df)
