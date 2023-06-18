@@ -19,16 +19,65 @@ st.markdown('<div style="text-align: justify; font-size:160%"> Model prediksi in
 st.write('')
 
 # LOAD MODEL & DUMMY DATA
-filename_model = 'finalized_model_linreg.sav'
+# Fungsi untuk menghitung prediksi berdasarkan persamaan regresi
+def predict_production(data):
+    coef_const = -78156610.23
+    coef_provinsi = 4006.8334
+    coef_tahun = 38533
+    coef_curah_hujan = -0.3897
+    coef_hama_penggerek_batang = -15.301
+    coef_hama_batang_coklat = 5.7487
+    coef_hama_tikus = -2.8053
+    coef_hama_blas = -43.3541
+    coef_hama_daun = 81.1937
+    coef_hama_tungro = 16.6364
+    coef_kelembapan = -92.7757
+    coef_lama_penyinaran = 60490
+    coef_luas_banjir = -3.1959
+    coef_luas_kekeringan = 5.0543
+    coef_npk_bersubsidi = 0.0060
+    coef_sp36_bersubsidi = -0.2285
+    coef_urea_bersubsidi = -0.0140
+    coef_za_bersubsidi = 1.0121
+    coef_irigasi = 0.9506
+    coef_temperature = -17390
+    coef_luas_panen = 5.0636
+    coef_produktivitas = 9074.2263
+
+    # Hitung prediksi berdasarkan persamaan regresi
+    prediction = (
+        coef_const +
+        coef_provinsi * data['Provinsi'] +
+        coef_tahun * data['Tahun'] +
+        coef_curah_hujan * data['Curah_Hujan'] +
+        coef_hama_penggerek_batang * data['Hama_Penggerek_Batang'] +
+        coef_hama_batang_coklat * data['Hama_Batang_Coklat'] +
+        coef_hama_tikus * data['Hama_Tikus'] +
+        coef_hama_blas * data['Hama_Blas'] +
+        coef_hama_daun * data['Hama_Daun'] +
+        coef_hama_tungro * data['Hama_Tungro'] +
+        coef_kelembapan * data['Kelembapan'] +
+        coef_lama_penyinaran * data['Lama_Penyinaran'] +
+        coef_luas_banjir * data['Luas_Banjir'] +
+        coef_luas_kekeringan * data['Luas_Kekeringan'] +
+        coef_npk_bersubsidi * data['NPK_Bersubsidi'] +
+        coef_sp36_bersubsidi * data['SP36_Bersubsidi'] +
+        coef_urea_bersubsidi * data['Urea_Bersubsidi'] +
+        coef_za_bersubsidi * data['ZA_Bersubsidi'] +
+        coef_irigasi * data['Irigasi'] +
+        coef_temperature * data['Temperature'] +
+        coef_luas_panen * data['Luas_Panen'] +
+        coef_produktivitas * data['Produktivitas']
+    )
+
+    return prediction
 
 @st.cache_resource
-def load_files():
-    # Load large model
-    model = pkl.load(open(filename_model, 'rb'))
+def load_data():
     data_dummy = pd.read_excel('Data_Contoh.xlsx')
     return model, data_dummy
 
-model, data_dummy = load_files()
+data_dummy = load_data()
 
 # CHOOSE FILE
 option = st.selectbox(
@@ -126,8 +175,7 @@ if option == 'Upload a File':
             # if everything is OK, then predict it
             df_model = df.copy()
             df_model['Provinsi'] = df_model['Provinsi'].map(provinsi_dict)
-            prediksi = model.predict(df_model.values)
-            df['Hasil_Prediksi'] = prediksi
+            df['Hasil_Prediksi'] = predict_production(df_model.values)
 
             # if everything is OK, display the dataframe
             st.write(df)
@@ -238,7 +286,7 @@ else:
         df_result['Provinsi'] = df_result['Provinsi'].map(provinsi_dict)
 
         # Predict
-        result = model.predict(df_result.values)
+        result = predict_production(df_model.values)
 
         # Show it
         st.success(result)
