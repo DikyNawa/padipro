@@ -286,9 +286,7 @@ else:
         df_result['Provinsi'] = df_result['Provinsi'].map(provinsi_dict)
 
         # Predict
-        st.dataframe(df_result)
-        st.dataframe(df_result.dtypes)
         result = predict_production(df_result)
 
         # Show it
-        st.success(result)
+        st.success(result[0])
