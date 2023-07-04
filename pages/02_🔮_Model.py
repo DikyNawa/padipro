@@ -217,44 +217,44 @@ else:
                              'MalukuUtara', 'PapuaBarat', 'Papua'))
     tahun = st.number_input(label = 'Pada tahun berapa padi diproduksi?', min_value=2011,
                             max_value=10000, step=1, key='1')
-    curah_hujan = st.number_input(label = 'Berapa curah hujan pada saat diproduksi? ',
-                                  min_value=0.0, step=0.1, key='2')
-    hama_penggerek_batang = st.number_input(label='Berapa jumlah hama penggerek batang pada saat diproduksi? ',
-                                            min_value=0, max_value=10000, step=1000, key='3')
-    hama_batang_coklat = st.number_input(label='Berapa jumlah hama batang coklat pada saat diproduksi? ',
-                                         min_value=0, max_value=10000, step=1000, key='4')
-    hama_tikus = st.number_input(label='Berapa jumlah hama tikus pada saat diproduksi? ',
-                                 min_value=0, max_value=10000, step=1000, key='5')
-    hama_blas = st.number_input(label='Berapa jumlah hama blas pada saat diproduksi? ',
-                                min_value=0, max_value=10000, step=1000, key='6')
-    hama_daun = st.number_input(label='Berapa jumlah hama daun pada saat diproduksi? ',
-                                min_value=0, max_value=10000, step=1000, key='7')
-    hama_tungro = st.number_input(label='Berapa jumlah hama tungro pada saat pada diproduksi? ',
-                                  min_value=0, max_value=10000, step=1000, key='8')
-    kelembapan = st.number_input(label='Berapa kelembapan pada saat diproduksi? ',
-                                  min_value=0, max_value=1000, step=10, key='9')
-    lama_sinar = st.number_input(label='Berapa lama penyinaran matahari pada saat diproduksi? ',
-                                  min_value=0, max_value=1000, step=10, key='10')
-    luas_banjir = st.number_input(label='Berapa luas lahan terkena banjir pada saat diproduksi? ',
-                                  min_value=0, max_value=1000, step=100, key='11')
-    luas_kekeringan = st.number_input(label='Berapa luas lahan terkena kekeringan pada saat diproduksi? ',
-                                  min_value=0, max_value=10000, step=100, key='12')
-    npk_subsidi = st.number_input(label='Berapa jumlah NPK bersubsidi pada saat diproduksi? ',
-                                  min_value=0, max_value=10000, step=100, key='13')
-    sp36_subsidi = st.number_input(label='Berapa jumlah SP36 bersubsidi pada saat diproduksi? ',
-                                  min_value=0, max_value=10000, step=100, key='14')
-    urea_subsidi = st.number_input(label='Berapa jumlah urea bersubsidi pada saat diproduksi? ',
-                                  min_value=0, max_value=10000, step=100, key='15')
-    za_subsidi = st.number_input(label='Berapa jumlah ZA bersubsidi pada saat diproduksi? ',
-                                  min_value=0, max_value=10000, step=100, key='16')
-    irigasi = st.number_input(label='Berapa jumlah irigasi pada saat diproduksi? ',
-                                  min_value=0, max_value=10000, step=10, key='17')
-    suhu = st.number_input(label='Berapa suhu / temperatur pada saat diproduksi? ',
-                                  min_value=0, max_value=10000, step=10, key='18')
-    luas_panen = st.number_input(label='Berapa luas panen didapat pada saat diproduksi? ',
-                                  min_value=0, max_value=10000, step=1000, key='19')
-    produktivitas = st.number_input(label='Berapa tingkat produktivitas pada saat diproduksi? ',
-                                  min_value=0, max_value=10000, step=1000, key='20')
+    curah_hujan = st.number_input(label = 'Berapa curah hujan pada saat diproduksi? (mm) ',
+                                  min_value=0.00, step=0.01, key='2')
+    hama_penggerek_batang = st.number_input(label='Berapa jumlah hama penggerek batang pada saat diproduksi? (Hektar) ',
+                                            min_value=0.00, step=0.01, key='3')
+    hama_batang_coklat = st.number_input(label='Berapa jumlah hama batang coklat pada saat diproduksi? (Hektar) ',
+                                         min_value=0.00, step=0.01, key='4')
+    hama_tikus = st.number_input(label='Berapa jumlah hama tikus pada saat diproduksi? (Hektar) ',
+                                 min_value=0.00, step=0.01, key='5')
+    hama_blas = st.number_input(label='Berapa jumlah hama blas pada saat diproduksi? (Hektar) ',
+                                min_value=0.00, step=0.01, key='6')
+    hama_daun = st.number_input(label='Berapa jumlah hama daun pada saat diproduksi? (Hektar) ',
+                                min_value=0.00, step=0.01, key='7')
+    hama_tungro = st.number_input(label='Berapa jumlah hama tungro pada saat pada diproduksi? (Hektar) ',
+                                  min_value=0.00, step=0.01, key='8')
+    kelembapan = st.number_input(label='Berapa kelembapan pada saat diproduksi? (Persentase) ',
+                                  min_value=0.00, step=0.01, key='9')
+    lama_sinar = st.number_input(label='Berapa lama penyinaran matahari pada saat diproduksi? (Jam) ',
+                                  min_value=0.00, step=0.01, key='10')
+    luas_banjir = st.number_input(label='Berapa luas lahan terkena banjir pada saat diproduksi? (Hektar) ',
+                                  min_value=0.00, step=0.01, key='11')
+    luas_kekeringan = st.number_input(label='Berapa luas lahan terkena kekeringan pada saat diproduksi? (Hektar) ',
+                                  min_value=0.00, step=0.01, key='12')
+    npk_subsidi = st.number_input(label='Berapa jumlah NPK bersubsidi pada saat diproduksi? (Hektar) ',
+                                  min_value=0.00, step=0.01, key='13')
+    sp36_subsidi = st.number_input(label='Berapa jumlah SP36 bersubsidi pada saat diproduksi? (Hektar) ',
+                                  min_value=0.00, step=0.01, key='14')
+    urea_subsidi = st.number_input(label='Berapa jumlah urea bersubsidi pada saat diproduksi? (Hektar) ',
+                                  min_value=0.00, step=0.01, key='15')
+    za_subsidi = st.number_input(label='Berapa jumlah ZA bersubsidi pada saat diproduksi? (Hektar) ',
+                                  min_value=0.00, step=0.01, key='16')
+    irigasi = st.number_input(label='Berapa jumlah irigasi pada saat diproduksi? (Hektar) ',
+                                  min_value=0.00, step=0.01, key='17')
+    suhu = st.number_input(label='Berapa suhu / temperatur pada saat diproduksi? (Celcius) ',
+                                  min_value=0.00, step=0.01, key='18')
+    luas_panen = st.number_input(label='Berapa luas panen didapat pada saat diproduksi? (Hektar) ',
+                                  min_value=0.00, step=0.01, key='19')
+    produktivitas = st.number_input(label='Berapa tingkat produktivitas pada saat diproduksi? (Kuintal/Hektar) ',
+                                  min_value=0.00, step=0.01, key='20')
 
     # CREATE SUBMIT BUTTON
     submit = st.button('Submit', use_container_width=True)
@@ -291,8 +291,8 @@ else:
 
         # Show it
         if result[0] < 0:
-            text_res = 'Jumlah Produksi : 0'
+            text_res = 'Jumlah Produksi : 0' + 'Ton'
             st.success(text_res)
         else:
-            text_res = 'Jumlah Produksi :' + str(result[0])
+            text_res = 'Jumlah Produksi :' + str(result[0]) + 'Ton'
             st.success(text_res)
