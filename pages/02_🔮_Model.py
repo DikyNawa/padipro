@@ -309,7 +309,7 @@ else:
 
         df_res_linechart = pd.DataFrame({'Provinsi':[provinsi],
                                          'Tahun':[tahun],
-                                         'Produksi':[result])
+                                         'Produksi':[result]})
         
         df_linechart.append(df_res_linechart)
         st.dataframe(df_linechart)
