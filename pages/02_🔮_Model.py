@@ -304,7 +304,7 @@ else:
         # Predict
         result = predict_production(df_result)
                 
-        df_linechart = data_awal[(data_awal['Provinsi'] == provinsi]
+        df_linechart = data_awal[data_awal['Provinsi'] == provinsi]
         df_linechart = df_linechart[['Provinsi' ,'Tahun', 'Produksi']]
         st.dataframe(df_linechart)
                 
