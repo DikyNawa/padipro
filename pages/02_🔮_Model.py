@@ -307,7 +307,7 @@ else:
         df_linechart = data_awal[data_awal['Provinsi'] == provinsi]
         df_linechart = df_linechart[['Provinsi' ,'Tahun', 'Produksi']]
 
-        df_linechart.loc[len(df_linechart)] = [provinsi, tahun, result.values]
+        df_linechart.loc[len(df_linechart)] = [provinsi, tahun, result[0]]
 
         df_res_linechart = pd.DataFrame({'Provinsi':[provinsi],
                                          'Tahun':[tahun],
