@@ -306,8 +306,13 @@ else:
                 
         df_linechart = data_awal[data_awal['Provinsi'] == provinsi]
         df_linechart = df_linechart[['Provinsi' ,'Tahun', 'Produksi']]
+
+        df_res_linechart = pd.DataFrame({'Provinsi':[provinsi],
+                                         'Tahun':[tahun],
+                                         'Produksi':[result])
+        
+        df_linechart.append(df_res_linechart)
         st.dataframe(df_linechart)
-                
         # Show it
         if result[0] < 0:
             text_res = 'Jumlah Produksi : 0' + 'Ton'
