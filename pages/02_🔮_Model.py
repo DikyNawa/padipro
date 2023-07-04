@@ -78,9 +78,10 @@ def predict_production(data):
 @st.cache_resource
 def load_data():
     data_dummy = pd.read_excel('Data_Contoh.xlsx')
-    return data_dummy
+    data_awal = pd.read_excel('prediksi_ok.xls')        
+    return data_dummy, data_awal
 
-data_dummy = load_data()
+data_dummy, data_awal = load_data()
 
 # CHOOSE FILE
 option = st.selectbox(
@@ -302,7 +303,11 @@ else:
 
         # Predict
         result = predict_production(df_result)
-
+                
+        df_linechart = data_awal[(data_awal['Provinsi'] == provinsi]
+        df_linechart = df_linechart[['Provinsi' ,'Tahun', 'Produksi']]
+        st.dataframe(df_linechart)
+                
         # Show it
         if result[0] < 0:
             text_res = 'Jumlah Produksi : 0' + 'Ton'
