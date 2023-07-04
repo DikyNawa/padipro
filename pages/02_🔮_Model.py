@@ -200,11 +200,15 @@ if option == 'Upload a File':
                 use_container_width=True
             )
 
-            # Ambil kolom 'Tahun' dan 'Hasil_Prediksi' dari dataframe
-            df_visualization = df[['Tahun', 'Hasil_Prediksi']]
-
-            # Membuat line chart menggunakan Plotly
-            fig = px.line(df_visualization, x='Tahun', y='Hasil_Prediksi', title='Prediksi Produksi Berdasarkan Tahun')
+            # Agregasi per tahun
+            df_agg = df.groupby('Tahun')['Hasil_Prediksi'].sum().reset_index()
+            
+            # Membuat line chart interaktif dengan Plotly
+            fig = px.line(df_agg, x='Tahun', y='Hasil_Prediksi', title='Total Jumlah Prediksi per Tahun')
+            fig.update_xaxes(title='Tahun')
+            fig.update_yaxes(title='Jumlah Prediksi')
+            
+            # Menampilkan chart
             st.plotly_chart(fig)
 
     # throw exception error
