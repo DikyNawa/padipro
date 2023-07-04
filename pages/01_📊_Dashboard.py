@@ -103,7 +103,7 @@ sum_produksi_prov = pd.DataFrame(sum_produksi_prov).sort_values(by='Produksi',
 fig_sum_produksi_prov = px.bar(sum_produksi_prov,
                                    x=sum_produksi_prov.index,
                                    y="Produksi",
-                                   title="<b>Jumlah Produksi berdasarkan<br>Provinsi</b>",
+                                   title="<b>Jumlah Produksi berdasarkan<br>Provinsi</b> (Ton)",
                                    color_discrete_sequence=["#0083B8"] * len(sum_produksi_prov),
                                    template="plotly_white",
 )
@@ -120,7 +120,7 @@ avg_produktivitas_prov = pd.DataFrame(avg_produktivitas_prov).sort_values(by='Pr
 fig_avg_produktivitas_prov = px.bar(avg_produktivitas_prov,
                                    x=avg_produktivitas_prov.index,
                                    y="Produktivitas",
-                                   title="<b>Rata-rata Produktivitas berdasarkan<br>Provinsi</b>",
+                                   title="<b>Rata-rata Produktivitas berdasarkan<br>Provinsi</b> (Kuintal/Hektar)",
                                    color_discrete_sequence=["#0083B8"] * len(avg_produktivitas_prov),
                                    template="plotly_white",
 )
@@ -132,26 +132,26 @@ fig_avg_produktivitas_prov.update_layout(
 # GRAFIK LINE CHART - RATA-RATA CURAH HUJAN DAN TEMPERATUR PER TAHUN
 df_mean = df.groupby("Tahun")[["Curah_Hujan", "Temperature"]].mean().reset_index()
 fig_avg_hujan_suhu_tahun = px.line(df_mean, x="Tahun", y=["Curah_Hujan", "Temperature"],
-                                   title="Rata-rata Curah Hujan dan Suhu Udara per Tahun")
+                                   title="Rata-rata Curah Hujan (mm) dan Suhu Udara (Celcius) per Tahun")
 
 # GRAFIK BAR CHART - JUMLAH MASING-MASING HAMA
 hama_columns = ['Hama_Penggerek_Batang', 'Hama_Batang_Coklat', 'Hama_Tikus', 'Hama_Blas', 'Hama_Daun', 'Hama_Tungro']
 jumlah_hama = df[hama_columns].sum()
 fig_sum_hama = go.Figure(data=[go.Bar(x=hama_columns, y=jumlah_hama)])
-fig_sum_hama.update_layout(title="Jumlah Hama pada Setiap Jenis Hama")
+fig_sum_hama.update_layout(title="Jumlah Hama pada Setiap Jenis Hama (Hektar) ")
 
 # GRAFIK BAR CHART - JUMLAH MASING-MASING PUPUK
 pupuk_columns = ['NPK_Bersubsidi', 'SP36_Bersubsidi','Urea_Bersubsidi', 'ZA_Bersubsidi']
 jumlah_pupuk = df[pupuk_columns].sum()
 fig_sum_pupuk = go.Figure(data=[go.Bar(x=pupuk_columns, y=jumlah_pupuk)])
-fig_sum_pupuk.update_layout(title="Jumlah Pupuk pada Setiap Jenis Pupuk")
+fig_sum_pupuk.update_layout(title="Jumlah Pupuk pada Setiap Jenis Pupuk (Hektar) ")
 
 # GRAFIK SCATTER PLOT - HUBUNGAN LUAS PANEN DENGAN PRODUKSI
 fig_scatter_luas_produksi = px.scatter(df,
                                          x="Luas_Panen",
                                          y="Produksi",
                                          color="Provinsi",
-                                         title="<b>Hubungan Luas Panen dengan Produksi</b>",
+                                         title="<b>Hubungan Luas Panen (Hektar) dengan Produksi (Ton)</b>",
                                          labels={
                                              "Luas_Panen": "Luas Panen"
                                          },
@@ -163,7 +163,7 @@ fig_scatter_produktiv_produksi = px.scatter(df,
                                          x="Produktivitas",
                                          y="Produksi",
                                          color="Provinsi",
-                                         title="<b>Hubungan Produktivitas dengan Produksi</b>",
+                                         title="<b>Hubungan Produktivitas (Ku/Ha) dengan Produksi (Ton)</b>",
                                          template="plotly_dark"
                                          )
 
