@@ -204,7 +204,7 @@ if option == 'Upload a File':
             df_agg = df.groupby('Tahun')['Hasil_Prediksi'].sum().reset_index()
             
             # Membuat line chart interaktif dengan Plotly
-            fig = px.line(df_agg, x='Tahun', y='Hasil_Prediksi', title='Total Jumlah Prediksi per Tahun')
+            fig = px.line(df_agg, x='Tahun', y='Hasil_Prediksi', title='Total Jumlah Prediksi per Tahun (dalam Ton)')
             fig.update_xaxes(title='Tahun')
             fig.update_yaxes(title='Jumlah Prediksi')
             
