@@ -310,6 +310,7 @@ else:
             df_linechart = df_linechart[['Provinsi' ,'Tahun', 'Produksi']]
             
             df_linechart.loc[len(df_linechart)] = [provinsi, tahun, result[0]]
+            df_linechart['Produksi'] = df_linechart['Produksi'].apply(lambda x: max(0, x))
             st.dataframe(df_linechart, use_container_width=True)
             
             # Membuat line chart interaktif dengan Plotly
@@ -325,6 +326,7 @@ else:
             df_linechart = df_linechart[['Provinsi' ,'Tahun', 'Produksi']]
             
             df_linechart.loc[len(df_linechart)] = [provinsi, tahun, result[0]]
+            df_linechart['Produksi'] = df_linechart['Produksi'].apply(lambda x: max(0, x))
             st.dataframe(df_linechart, use_container_width=True)
             
             # Membuat line chart interaktif dengan Plotly
