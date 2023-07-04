@@ -311,8 +311,9 @@ else:
                                          'Tahun':[tahun],
                                          'Produksi':[result]})
         
-        df_linechart.append(df_res_linechart)
+        #df_linechart.append(df_res_linechart)
         st.dataframe(df_linechart)
+        st.dataframe(df_res_linechart)
         # Show it
         if result[0] < 0:
             text_res = 'Jumlah Produksi : 0' + 'Ton'
