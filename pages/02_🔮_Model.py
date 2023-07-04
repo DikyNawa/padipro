@@ -303,24 +303,35 @@ else:
 
         # Predict
         result = predict_production(df_result)
-                
-        df_linechart = data_awal[data_awal['Provinsi'] == provinsi]
-        df_linechart = df_linechart[['Provinsi' ,'Tahun', 'Produksi']]
-
-        df_linechart.loc[len(df_linechart)] = [provinsi, tahun, result[0]]
-        st.dataframe(df_linechart)
-
-        # Membuat line chart interaktif dengan Plotly
-        fig = px.line(df_linechart, x='Tahun', y='Produksi', title='Total Jumlah Prediksi per Tahun (dalam Ton)')
-        fig.update_xaxes(title='Tahun')
-        fig.update_yaxes(title='Jumlah Prediksi')    
-        # Menampilkan chart
-        st.plotly_chart(fig)
 
         # Show it
         if result[0] < 0:
+            df_linechart = data_awal[data_awal['Provinsi'] == provinsi]
+            df_linechart = df_linechart[['Provinsi' ,'Tahun', 'Produksi']]
+            
+            df_linechart.loc[len(df_linechart)] = [provinsi, tahun, result[0]]
+            st.dataframe(df_linechart, use_container_width=True)
+            
+            # Membuat line chart interaktif dengan Plotly
+            fig = px.line(df_linechart, x='Tahun', y='Produksi', title='Total Jumlah Prediksi per Tahun (dalam Ton)')
+            fig.update_xaxes(title='Tahun')
+            fig.update_yaxes(title='Jumlah Prediksi')    
+            # Menampilkan chart
+            st.plotly_chart(fig)
             text_res = 'Jumlah Produksi : 0' + 'Ton'
             st.success(text_res)
         else:
+            df_linechart = data_awal[data_awal['Provinsi'] == provinsi]
+            df_linechart = df_linechart[['Provinsi' ,'Tahun', 'Produksi']]
+            
+            df_linechart.loc[len(df_linechart)] = [provinsi, tahun, result[0]]
+            st.dataframe(df_linechart, use_container_width=True)
+            
+            # Membuat line chart interaktif dengan Plotly
+            fig = px.line(df_linechart, x='Tahun', y='Produksi', title='Total Jumlah Prediksi per Tahun (dalam Ton)')
+            fig.update_xaxes(title='Tahun')
+            fig.update_yaxes(title='Jumlah Prediksi')    
+            # Menampilkan chart
+            st.plotly_chart(fig)
             text_res = 'Jumlah Produksi :' + str(result[0]) + 'Ton'
             st.success(text_res)
