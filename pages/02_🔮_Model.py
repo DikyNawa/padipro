@@ -1,5 +1,8 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
+import plotly.graph_objs as go
+import matplotlib.pyplot as plt
 import pickle as pkl
 from sklearn import preprocessing
 from openpyxl.utils.dataframe import dataframe_to_rows
@@ -196,6 +199,13 @@ if option == 'Upload a File':
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                 use_container_width=True
             )
+
+            # Ambil kolom 'Tahun' dan 'Hasil_Prediksi' dari dataframe
+            df_visualization = df[['Tahun', 'Hasil_Prediksi']]
+
+            # Membuat line chart menggunakan Plotly
+            fig = px.line(df_visualization, x='Tahun', y='Hasil_Prediksi', title='Prediksi Produksi Berdasarkan Tahun')
+            st.plotly_chart(fig)
 
     # throw exception error
     except ValueError as e:
