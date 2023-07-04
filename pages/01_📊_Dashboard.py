@@ -73,10 +73,10 @@ persentase_kerugian_hama_penyakit = (total_kerugian_hama_penyakit / total_produk
 kpi_column1, kpi_column2, kpi_column3 = st.columns(3)
 with kpi_column1:
     st.subheader("Total Jumlah Hasil Produksi")
-    st.write(sum_produksi)
+    st.write(sum_produksi, 'Ton')
 with kpi_column2:
     st.subheader("Rata-rata Jumlah Produktivitas")
-    st.write(avg_produktivitas)
+    st.write(avg_produktivitas, 'Kuintal/Hektar')
 with kpi_column3:
     st.subheader("Persentase Perubahan Produksi")
     st.write(np.round(persen_perubahan_produksi,2), "%")
