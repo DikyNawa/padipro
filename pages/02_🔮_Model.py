@@ -308,12 +308,15 @@ else:
         df_linechart = df_linechart[['Provinsi' ,'Tahun', 'Produksi']]
 
         df_linechart.loc[len(df_linechart)] = [provinsi, tahun, result[0]]
-
-        df_res_linechart = pd.DataFrame({'Provinsi':[provinsi],
-                                         'Tahun':[tahun],
-                                         'Produksi':[result.values]})
         st.dataframe(df_linechart)
-        st.dataframe(df_res_linechart)
+
+        # Membuat line chart interaktif dengan Plotly
+        fig = px.line(df_linechart, x='Tahun', y='Produksi', title='Total Jumlah Prediksi per Tahun (dalam Ton)')
+        fig.update_xaxes(title='Tahun')
+        fig.update_yaxes(title='Jumlah Prediksi')    
+        # Menampilkan chart
+        st.plotly_chart(fig)
+
         # Show it
         if result[0] < 0:
             text_res = 'Jumlah Produksi : 0' + 'Ton'
