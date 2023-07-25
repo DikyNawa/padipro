@@ -230,7 +230,7 @@ else:
                              'SulawesiUtara', 'SulawesiTengah', 'SulawesiSelatan',
                              'SulawesiTenggara', 'Gorontalo', 'SulawesiBarat', 'Maluku',
                              'MalukuUtara', 'PapuaBarat', 'Papua'))
-    tahun = st.number_input(label = 'Pada tahun berapa padi diproduksi?', min_value=2011,
+    tahun = st.number_input(label = 'Pada tahun berapa padi diproduksi?', min_value=2021,
                             max_value=10000, step=1, key='1')
     curah_hujan = st.number_input(label = 'Berapa curah hujan pada saat diproduksi? (mm) ',
                                   min_value=0.00, step=0.01, key='2')
