@@ -16,7 +16,7 @@ st.set_page_config(page_title="Dashboard", page_icon=":bar_chart:", layout="wide
 # IMPORT DATASET
 @st.cache_resource
 def load_data():
-    df = pd.read_excel('prediksi_ok.xls')
+    df = pd.read_excel('prediksi_ok_fix.xls')
     df['ZA_Bersubsidi'] = df['ZA_Bersubsidi'].str.replace('46.72.40', '0')
     df['ZA_Bersubsidi'] = df['ZA_Bersubsidi'].str.replace('7.384.00', '7.384')
     df['ZA_Bersubsidi'] = df['ZA_Bersubsidi'].astype('float')
