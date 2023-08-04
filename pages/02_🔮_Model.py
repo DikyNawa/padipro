@@ -85,7 +85,7 @@ data_dummy, data_awal = load_data()
 
 # CHOOSE FILE
 option = st.selectbox(
-    'How would you like to do prediction?',
+    'Pilihlah cara untuk memprediksi',
     ('Manual Input', 'Upload a File'))
 
 # DICTIONARY MAPPING PROVINSI
