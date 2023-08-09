@@ -265,7 +265,7 @@ else:
     irigasi = st.number_input(label='Berapa jumlah irigasi pada saat diproduksi? (Hektar) ',
                                   min_value=0.00, step=0.01, key='17')
     suhu = st.number_input(label='Berapa suhu / temperatur pada saat diproduksi? (Celcius) ',
-                                  min_value=0.00, step=0.01, key='18')
+                                  min_value=0.00, max_value=29.00, step=0.01, key='18')
     luas_panen = st.number_input(label='Berapa luas panen didapat pada saat diproduksi? (Hektar) ',
                                   min_value=0.00, step=0.01, key='19')
     produktivitas = st.number_input(label='Berapa tingkat produktivitas pada saat diproduksi? (Kuintal/Hektar) ',
